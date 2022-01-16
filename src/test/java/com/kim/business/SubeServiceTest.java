@@ -23,7 +23,7 @@ class SubeServiceTest {
 
   @Mock private HttpClient client;
   @Mock private HttpResponse<Object> response;
-  @InjectMocks private SubeService subeService;
+  @InjectMocks private Sube subeService;
 
   private String result =
       "{\"type\":\"FeatureCollection\",\"name\":\"prvsube020819\",\"crs\":{\"type\":\"name\",\"properties\":{\"name\":\"urn:ogc:def:crs:OGC:1.3:CRS84\"}},\"features\":[{\"type\":\"Feature\",\"properties\":{\"Entidad\":\"TEST\",\"Tipo de Centro\":\"Sell and Recharge\",\"Ubicación\":\"MOUNTAIN VIEW STREET\",\"Tipo Ubicación\":\"HELM STREET\",\"Dirección\":\"RODHES AVE\",\"Número\":\"123\",\"Barrio\":\"MANHATTAN\",\"Comuna\":\"1\",\"Partido\":\"NEW YOUR CITY PARTY\",\"País\":\"US\",\"Provincia\":\"RI\",\"Localidad\":\"RHODE ISLAND\",\"CP\":\"1234\",\"Latitud\":-14.612343,\"Longitud\":-28.8456},\"geometry\":{\"type\":\"Point\",\"coordinates\":[-28.8456,-14.612343]}}]}";

@@ -15,7 +15,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SubeService {
+public class Sube {
   private final HttpClient client = HttpClient.newBuilder().build();
   private final ObjectMapper mapper = new ObjectMapper();
 

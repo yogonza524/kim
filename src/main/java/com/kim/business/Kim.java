@@ -11,7 +11,7 @@ import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
 
-public class KimService {
+public class Kim {
 
   private static final int TIMEOUT = 30000;
   private final ObjectMapper mapper = new ObjectMapper();
@@ -19,7 +19,7 @@ public class KimService {
   private final Credentials credentials;
   private final HttpTransportSE client = new HttpTransportSE(Constants.URL_STOP_MODULE, TIMEOUT);
 
-  public KimService(Credentials credentials) {
+  public Kim(Credentials credentials) {
     this.credentials = credentials;
   }
 

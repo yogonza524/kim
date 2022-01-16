@@ -39,7 +39,7 @@ dependencies {
 ## Do it yourself
 - Instance the service first
 ```java
-KimService kimService = new KimService(Credentials.builder()
+Kim kim = new Kim(Credentials.builder()
         .username(System.getenv("KIM_USERNAME"))
         .password(System.getenv("KIM_PASSWORD"))
     .build());
@@ -47,14 +47,14 @@ KimService kimService = new KimService(Credentials.builder()
 
 - List all bus lines
 ```java
-kimService.linesBy(Place.CORRIENTES())
+kim.linesBy(Place.CORRIENTES())
     .getLines()
     .forEach(System.out::println);
 ```
 
 - List a route (list of GPS points) for a given line
 ```java
-kimService.routes(line)
+kim.routes(line)
     .getPoints()
     .stream()
     .forEach(System.out::println);
@@ -62,28 +62,28 @@ kimService.routes(line)
 
 - List streets for a given line
 ```java
-kimService.streetsByLine(line)
+kim.streetsByLine(line)
     .getStreets()
     .forEach(System.out::println);
 ```
 
 - List streets intersection for a given line and street
 ```java
-kimService.intersectionPerLineAndStreet(line, street)
+kim.intersectionPerLineAndStreet(line, street)
     .getStreets()
     .forEach(System.out::println);
 ```
 
 - List stop bus for a given line and streets intersections
 ```java
-kimService.stopByLineAndStreetAndIntersection(line, street, intersection)
+kim.stopByLineAndStreetAndIntersection(line, street, intersection)
     .getStopList()
     .forEach(System.out::println);
 ```
 
 - List next arrivals for a given stop, line and place
 ```java
-ArrivalResponse nextArrivals = kimService
+ArrivalResponse nextArrivals = kim
     .nextArrivals(stop, line, Place.CORRIENTES());
     
     if (nextArrivals.getCode() == 0) {

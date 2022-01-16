@@ -26,7 +26,7 @@ class KimServiceTest {
   @Mock private EnvelopeFactory envelopeFactory;
   @Mock private SoapSerializationEnvelope envelope;
 
-  @InjectMocks private KimService kimService;
+  @InjectMocks private Kim kim;
 
   @Test
   public void shouldListAllLinesPerState() throws IOException, XmlPullParserException {
@@ -38,13 +38,13 @@ class KimServiceTest {
     String response =
         "{\"CodigoEstado\":0,\"MensajeEstado\":\"ok\",\"lineas\":[{\"CodigoLineaParada\":\"1\",\"Descripcion\":\"100A\",\"CodigoEntidad\":\"123\",\"CodigoEmpresa\":741}]}";
 
-    ReflectionTestUtils.setField(kimService, "client", client);
-    ReflectionTestUtils.setField(kimService, "envelopeFactory", envelopeFactory);
+    ReflectionTestUtils.setField(kim, "client", client);
+    ReflectionTestUtils.setField(kim, "envelopeFactory", envelopeFactory);
 
     Mockito.when(envelopeFactory.create(Mockito.any())).thenReturn(envelope);
     Mockito.when(envelope.getResponse()).thenReturn(response);
 
-    LinesPerStateResponse r = kimService.linesBy(place);
+    LinesPerStateResponse r = kim.linesBy(place);
 
     Assertions.assertNotNull(r);
     Assertions.assertEquals(0, r.getCode());
@@ -58,7 +58,7 @@ class KimServiceTest {
   @Test
   public void shouldListStreetsForLine() throws IOException, XmlPullParserException {
 
-    StreetsPerLineResponse r = kimService.streetsByLine(Line.builder().code(123).build());
+    StreetsPerLineResponse r = kim.streetsByLine(Line.builder().code(123).build());
 
     Assertions.assertNotNull(r);
   }
@@ -67,7 +67,7 @@ class KimServiceTest {
   public void shouldListStopPerLine() throws IOException, XmlPullParserException {
 
     StopPerLineAndStreetAndIntersectionResponse r =
-        kimService.stopByLineAndStreetAndIntersection(
+        kim.stopByLineAndStreetAndIntersection(
             Line.builder().code(123).build(),
             Street.builder().code("1").build(),
             Street.builder().code("2").build());
@@ -79,7 +79,7 @@ class KimServiceTest {
   public void shouldListIntersectionsPerLineAndStreet() throws IOException, XmlPullParserException {
 
     StreetsPerLineResponse r =
-        kimService.intersectionPerLineAndStreet(
+        kim.intersectionPerLineAndStreet(
             Line.builder().code(123).build(), Street.builder().code("1").build());
 
     Assertions.assertNotNull(r);
@@ -89,7 +89,7 @@ class KimServiceTest {
   public void shouldListArrivals() throws IOException, XmlPullParserException {
 
     ArrivalResponse r =
-        kimService.nextArrivals(
+        kim.nextArrivals(
             Stop.builder().id("test").build(), Line.builder().code(1).build(), Place.CORRIENTES());
 
     Assertions.assertNotNull(r);
@@ -98,7 +98,7 @@ class KimServiceTest {
   @Test
   public void shouldListRoutesByLine() throws IOException, XmlPullParserException {
 
-    RoutesResponse r = kimService.routes(Line.builder().code(1).build());
+    RoutesResponse r = kim.routes(Line.builder().code(1).build());
 
     Assertions.assertNotNull(r);
   }
@@ -107,7 +107,7 @@ class KimServiceTest {
   public void shouldListNearbyStops() throws IOException, XmlPullParserException {
 
     StopPerLineAndStreetAndIntersectionResponse r =
-        kimService.nearbyStops(
+        kim.nearbyStops(
             GPS.builder().longitude("10.0").latitude("11.0").build(), Place.CORRIENTES());
 
     Assertions.assertNotNull(r);
