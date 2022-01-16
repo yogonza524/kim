@@ -1,0 +1,19 @@
+package com.kim.domain;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class Street {
+  @JsonProperty("Codigo")
+  private String code;
+
+  @JsonProperty("Descripcion")
+  private String desc;
+}

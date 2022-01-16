@@ -1,0 +1,47 @@
+modifyPom {
+    project {
+        name 'kim'
+        description 'Argentina Bus service'
+        url 'https://github.com/yogonza524/kim'
+        inceptionYear '2022'
+
+        scm {
+            url 'https://github.com/yogonza524/roman-code/tree/master/'
+            connection 'sscm:git:git://github.com/yogonza524/kim.git'
+            developerConnection 'scm:git:ssh://github.com/yogonza524/kim.git'
+        }
+
+        licenses {
+            license {
+                name 'The Apache Software License, Version 2.0'
+                url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                distribution 'repo'
+            }
+        }
+
+        developers {
+            developer {
+                id 'yogonza524'
+                name 'Gonzalo H. Mendoza'
+                email 'yogonza524@gmail.com'
+
+            }
+        }
+    }
+}
+
+extraArchive {
+    sources = true
+    tests = true
+    javadoc = true
+}
+
+nexus {
+    sign = true
+    repositoryUrl = 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
+    snapshotRepositoryUrl = 'https://oss.sonatype.org/content/repositories/snapshots/'
+}
+
+nexusStaging {
+    packageGroup = "io.github.yogonza524"
+}
