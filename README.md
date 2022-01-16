@@ -25,7 +25,7 @@ repositories {
 }
 
 dependencies {
-    implementation "io.github.yogonza524:kim:0.0.1"
+    implementation "io.github.yogonza524:kim:0.0.2"
 }
 ```
 
