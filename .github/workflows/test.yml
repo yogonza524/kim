@@ -24,4 +24,6 @@ jobs:
       - name: Generate coverage
         run: ./gradlew check jacocoTestReport
       - name: Send to Coverage web
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: bash <(curl -s https://codecov.io/bash)

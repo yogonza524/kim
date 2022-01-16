@@ -1,0 +1,5 @@
+[![Maven Artifact](https://img.shields.io/nexus/r/io.github.yogonza524/kim?server=https%3A%2F%2Foss.sonatype.org)](https://mvnrepository.com/artifact/io.github.yogonza524/kim)
+![Test all](https://github.com/yogonza524/kim/workflows/test/badge.svg)
+![Test all](https://github.com/yogonza524/kim/workflows/mutation-test/badge.svg)
+[![Coverage](https://codecov.io/gh/yogonza524/kim/branch/master/graph/badge.svg)](https://codecov.io/gh/yogonza524/kim)
+![Code size](https://img.shields.io/github/languages/code-size/yogonza524/kim)
