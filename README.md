@@ -81,7 +81,7 @@ kimService.stopByLineAndStreetAndIntersection(line, street, intersection)
     .forEach(System.out::println);
 ```
 
-- List next arrivals for a fiven stop, line and place
+- List next arrivals for a given stop, line and place
 ```java
 ArrivalResponse nextArrivals = kimService
     .nextArrivals(stop, line, Place.CORRIENTES());
