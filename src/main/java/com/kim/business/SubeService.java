@@ -6,7 +6,6 @@ import com.kim.domain.GPS;
 import com.kim.domain.RechargePoint;
 import com.kim.domain.RechargePointDistance;
 import com.kim.util.DistanceUtil;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -55,7 +54,7 @@ public class SubeService {
             .map(
                 p ->
                     new RechargePointDistance(
-                            DistanceUtil.distance(
+                        DistanceUtil.distance(
                             Double.valueOf(position.getLatitude()),
                             Double.valueOf(p.getProperties().get("Latitud").toString()),
                             Double.valueOf(position.getLongitude()),

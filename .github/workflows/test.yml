@@ -1,0 +1,27 @@
+name: test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test-and-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: codecov/codecov-action@v1
+        with:
+          directory: ./build/reports/jacoco
+          path_to_write_report: ./build/reports/jacoco/jacococodecov_report.gz
+      - name: Set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.11
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Generate coverage
+        run: ./gradlew check jacocoTestReport
+      - name: Send to Coverage web
+        run: bash <(curl -s https://codecov.io/bash)

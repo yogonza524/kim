@@ -19,6 +19,7 @@ plugins {
 }
 
 apply plugin: 'com.bmuschko.nexus'
+apply plugin: 'jacoco'
 
 archivesBaseName = 'kim'
 group = "io.github.yogonza524"

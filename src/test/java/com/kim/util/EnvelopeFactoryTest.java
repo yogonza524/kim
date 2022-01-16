@@ -12,15 +12,15 @@ import org.mockito.junit.jupiter.MockitoExtension;
 @ExtendWith(MockitoExtension.class)
 class EnvelopeFactoryTest {
 
-    @Mock private SoapObject request;
-    @InjectMocks private EnvelopeFactory envelopeFactory;
+  @Mock private SoapObject request;
+  @InjectMocks private EnvelopeFactory envelopeFactory;
 
-    @Test
-    public void shouldGenerateEnvelope() {
-        SoapSerializationEnvelope result = envelopeFactory.create(request);
+  @Test
+  public void shouldGenerateEnvelope() {
+    SoapSerializationEnvelope result = envelopeFactory.create(request);
 
-        Assertions.assertNotNull(result);
-        Assertions.assertNotNull(result.bodyOut);
-        Assertions.assertEquals(true, result.dotNet);
-    }
+    Assertions.assertNotNull(result);
+    Assertions.assertNotNull(result.bodyOut);
+    Assertions.assertEquals(true, result.dotNet);
+  }
 }
