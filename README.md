@@ -13,7 +13,7 @@ To add as dependency using Maven, you should have at ```pom.xml```:
 <dependency>
   <groupId>io.github.yogonza524</groupId>
   <artifactId>kim</artifactId>
-  <version>0.0.2</version>
+  <version>0.0.3</version>
 </dependency>
 ```
 
@@ -25,7 +25,7 @@ repositories {
 }
 
 dependencies {
-    implementation "io.github.yogonza524:kim:0.0.2"
+    implementation "io.github.yogonza524:kim:0.0.3"
 }
 ```
 
@@ -45,9 +45,30 @@ Kim kim = new Kim(Credentials.builder()
     .build());
 ```
 
-- List all bus lines
+- List all places
 ```java
-kim.linesBy(Place.CORRIENTES())
+Place
+    .all()
+    .forEach(System.out::println);
+```
+
+- Get a valid place
+```java
+Place.P_CABA_BUENOS_AIRES()
+```
+
+- Instance a custom place
+```java
+Place.builder()
+        .country("COUNTRY")
+        .province("PROVINCE")
+        .state("STATE")
+    .build();
+```
+
+- List all bus lines for a given place
+```java
+kim.linesBy(Place.P_CABA_BUENOS_AIRES())
     .getLines()
     .forEach(System.out::println);
 ```
