@@ -90,7 +90,9 @@ class KimServiceTest {
 
     ArrivalResponse r =
         kim.nextArrivals(
-            Stop.builder().id("test").build(), Line.builder().code(1).build(), Place.P_CORRIENTES_CORRIENTES());
+            Stop.builder().id("test").build(),
+            Line.builder().code(1).build(),
+            Place.P_CORRIENTES_CORRIENTES());
 
     Assertions.assertNotNull(r);
   }
@@ -108,7 +110,8 @@ class KimServiceTest {
 
     StopPerLineAndStreetAndIntersectionResponse r =
         kim.nearbyStops(
-            GPS.builder().longitude("10.0").latitude("11.0").build(), Place.P_CORRIENTES_CORRIENTES());
+            GPS.builder().longitude("10.0").latitude("11.0").build(),
+            Place.P_CORRIENTES_CORRIENTES());
 
     Assertions.assertNotNull(r);
   }
