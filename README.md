@@ -13,7 +13,7 @@ To add as dependency using Maven, you should have at ```pom.xml```:
 <dependency>
   <groupId>io.github.yogonza524</groupId>
   <artifactId>kim</artifactId>
-  <version>0.0.3</version>
+  <version>0.0.4</version>
 </dependency>
 ```
 
@@ -25,7 +25,7 @@ repositories {
 }
 
 dependencies {
-    implementation "io.github.yogonza524:kim:0.0.3"
+    implementation "io.github.yogonza524:kim:0.0.4"
 }
 ```
 
