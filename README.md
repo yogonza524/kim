@@ -105,7 +105,7 @@ kim.stopByLineAndStreetAndIntersection(line, street, intersection)
 - List next arrivals for a given stop, line and place
 ```java
 ArrivalResponse nextArrivals = kim
-    .nextArrivals(stop, line, Place.CORRIENTES());
+    .nextArrivals(stop, line, Place.P_CABA_BUENOS_AIRES());
     
     if (nextArrivals.getCode() == 0) {
       nextArrivals
