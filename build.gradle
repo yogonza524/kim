@@ -23,7 +23,7 @@ apply plugin: 'jacoco'
 
 archivesBaseName = 'kim'
 group = "io.github.yogonza524"
-version = "0.0.2"
+version = "0.0.3"
 
 repositories {
     jcenter()
